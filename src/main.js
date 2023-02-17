@@ -4,9 +4,7 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import VeeValidatePlugin from "./includes/validation";
-
-import "./assets/base.css";
-import "./assets/main.css";
+import "./includes/firebase";
 
 const app = createApp(App);
 
@@ -15,3 +13,8 @@ app.use(router);
 app.use(VeeValidatePlugin);
 
 app.mount("#app");
+
+import "./assets/base.css";
+import "./assets/main.css";
+
+export default app;
