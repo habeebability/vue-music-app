@@ -19,17 +19,17 @@ const routes = [
     // alias: "/manage",
     path: "/manage-music",
     component: Manage,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/manage",
     redirect: { name: "manage" },
-    beforeEnter: (to, from, next) => {
-      console.log("Before Enter");
-      next();
-    },
-    meta: {
-      requiresAuth: true,
-    },
+    // beforeEnter: (to, from, next) => {
+    //   console.log("Before Enter");
+    //   next();
+    // },
   },
   {
     path: "/:catchAll(.*)*",
@@ -44,6 +44,7 @@ const router = createRouter({
 
 // Global Navigation Guard
 router.beforeEach((to, from, next) => {
+  console.log("Global Navigation Guard", to.meta);
   if (!to.meta.requiresAuth) {
     next();
     return;
@@ -51,6 +52,7 @@ router.beforeEach((to, from, next) => {
 
   const store = useUserStore();
 
+  console.log(store.userLoggedIn);
   if (store.userLoggedIn) {
     next();
   } else {
