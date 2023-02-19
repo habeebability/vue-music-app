@@ -3,6 +3,7 @@ import useUserStore from "@/stores/user";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Manage from "@/views/Manage.vue";
+import Song from "@/components/Song.vue";
 const routes = [
   {
     name: "home",
@@ -30,6 +31,11 @@ const routes = [
     //   console.log("Before Enter");
     //   next();
     // },
+  },
+  {
+    name: "song",
+    path: "/song/:id",
+    component: Song,
   },
   {
     path: "/:catchAll(.*)*",
