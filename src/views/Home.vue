@@ -97,7 +97,7 @@ export default {
           .get();
       } else {
         snapshots = await songsCollection
-          .orderBy("modified_name", "desc")
+          .orderBy("modified_name")
           .limit(this.maxPerPage)
           .get();
       }
