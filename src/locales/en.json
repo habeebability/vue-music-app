@@ -1,5 +1,16 @@
 {
   "home": {
-    "listen": "Listen to Great Music!"
+    "listen": "Listen to Great Music!",
+    "listen_description": "Music is a free music streaming service that allows you to listen to millions of songs from around the world. You can upload your own music and share it with the world, or listen to the songs uploaded by other users."
+  },
+  "song": {
+    "comment_count": "No comments | 1 comment | {count} comments"
+  },
+  "register": {
+    "accept": "I accept the Music's {0}",
+    "tos": "Terms of Service"
+  },
+  "manage": {
+    "my_songs": "My Songs"
   }
 }

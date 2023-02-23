@@ -1,5 +1,9 @@
 {
   "home": {
-    "listen": "Écoutez de la bonne musique !"
+    "listen": "Écoutez de la bonne musique !",
+    "listen_description": "Musik est un service de streaming musical gratuit qui vous permet d'écouter des millions de chansons du monde entier. Vous pouvez télécharger votre propre musique et la partager avec le monde, ou écouter les chansons téléchargées par d'autres utilisateurs."
+  },
+  "manage": {
+    "my_songs": "Mes chansons"
   }
 }
