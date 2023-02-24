@@ -1,9 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
 import useUserStore from "@/stores/user";
-import Home from "@/views/Home.vue";
-import About from "@/views/About.vue";
-import Manage from "@/views/Manage.vue";
-import Song from "@/components/Song.vue";
+// import Home from "@/views/Home.vue";
+// import About from "@/views/About.vue";
+// import Manage from "@/views/Manage.vue";
+// import Song from "@/components/Song.vue";
+
+// Lazy Loading components, only load when needed,
+const Home = () => import("@/views/Home.vue");
+const About = () => import("@/views/About.vue");
+const Manage = () => import("@/views/Manage.vue");
+const Song = () => import("@/components/Song.vue");
 const routes = [
   {
     name: "home",

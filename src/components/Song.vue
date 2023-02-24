@@ -184,22 +184,25 @@ export default {
     },
   },
 
-  async created() {
-    const docSnapshot = await songsCollection.doc(this.$route.params.id).get();
+  // changed created to beforeRouteEnter so that the song data is fetched before the page is rendered, because we are using beforeRouterEnter, we needed the to, from and next functions, we also added the vm paramenter inside the next() function to replace the this keyword.
+  async beforeRouteEnter(to, from, next) {
+    const docSnapshot = await songsCollection.doc(to.$route.params.id).get();
 
-    if (!docSnapshot.exists) {
-      this.$router.push({ name: "home" });
+    next((vm) => {
+      if (!docSnapshot.exists) {
+        vm.$router.push({ name: "home" });
 
-      return;
-    }
+        return;
+      }
 
-    const { sort } = this.$route.query;
+      const { sort } = vm.$route.query;
 
-    this.sort === "1" || sort === "2" ? sort : "1";
+      vm.sort === "1" || sort === "2" ? sort : "1";
 
-    this.song = docSnapshot.data();
+      vm.song = docSnapshot.data();
 
-    this.getComments();
+      vm.getComments();
+    });
   },
 };
 </script>
